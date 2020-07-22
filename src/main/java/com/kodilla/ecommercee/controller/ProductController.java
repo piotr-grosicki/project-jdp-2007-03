@@ -1,11 +1,13 @@
-package com.kodilla.ecommercee;
+package com.kodilla.ecommercee.controller;
 
+import com.kodilla.ecommercee.controller.ProductNotFoundException;
 import com.kodilla.ecommercee.domain.ProductDto;
 import com.kodilla.ecommercee.mapper.ProductMapper;
 import com.kodilla.ecommercee.service.DbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -25,6 +27,11 @@ public class ProductController {
     @RequestMapping(method = RequestMethod.GET, value = "getProducts")
     public List<ProductDto> getProducts(){
         return productMapper.mapToProductDtoList(service.getAllProducts());
+    }
+    @RequestMapping(method = RequestMethod.GET, value = "getProduct")
+    public ProductDto getProduct(@RequestParam Long productId) throws ProductNotFoundException {
+
+        return productMapper.mapToProductDto(service.getProduct(productId).orElseThrow(ProductNotFoundException::new));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteProduct")
