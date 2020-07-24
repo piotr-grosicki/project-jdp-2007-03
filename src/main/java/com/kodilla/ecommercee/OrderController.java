@@ -1,8 +1,6 @@
 package com.kodilla.ecommercee;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,22 +17,22 @@ public class OrderController {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "getOrder")
-    public OrderDto getOrder(Long orderId) {
+    public OrderDto getOrder(@RequestParam Long orderId) {
         return new OrderDto();
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteOrder")
-    public void deleteOrder(Long orderId) {
+    public void deleteOrder(@RequestParam Long orderId) {
 
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateOrder")
-    public OrderDto updateOrder(OrderDto orderDto) {
+    public OrderDto updateOrder(@RequestBody OrderDto orderDto) {
         return new OrderDto();
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createOrder")
-    public void createOrder(OrderDto orderDto) {
+    public void createOrder(@RequestBody OrderDto orderDto) {
 
     }
 
