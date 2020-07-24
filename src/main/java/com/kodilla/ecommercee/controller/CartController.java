@@ -5,12 +5,14 @@ import com.kodilla.ecommercee.domain.OrderDto;
 import com.kodilla.ecommercee.domain.ProductDto;
 import java.util.ArrayList;
 import java.util.List;
+import javax.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,22 +22,25 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RequestMapping("/v1/cart")
 public class CartController {
 
-  @PostMapping(
-      path = "/createCart",
+  @RequestMapping(
+      method = RequestMethod.POST,
+      value = "",
       consumes = APPLICATION_JSON_VALUE
   )
   public void createCart(@RequestBody CartDto cartDto) {
   }
 
-  @GetMapping(
-      path = "/{cartId}/products}"
+  @RequestMapping(
+      method = RequestMethod.GET,
+      value = "/{cartId}/products}"
   )
   public List<ProductDto> getProductsByCartId(@RequestParam("cartId") Long cartId) {
     return new ArrayList<>();
   }
 
-  @PutMapping(
-      path = "/{cartId}",
+  @RequestMapping(
+      method = RequestMethod.PUT,
+      value = "",
       consumes = APPLICATION_JSON_VALUE,
       produces = APPLICATION_JSON_VALUE
   )
@@ -43,16 +48,18 @@ public class CartController {
     return new CartDto();
   }
 
-  @DeleteMapping(
-      path = "/{cartId}/product/{productId}"
+  @RequestMapping(
+      method = RequestMethod.DELETE,
+      value = "/{cartId}/product/{productId}"
   )
   public void deleteProductFromCart(
       @RequestParam("cartId") Long cartId,
       @RequestParam("productId") Long productId) {
   }
 
-  @PostMapping(
-      path = "/{cartId}/order",
+  @RequestMapping(
+      method = RequestMethod.POST,
+      value = "/{cartId}/order",
       consumes = APPLICATION_JSON_VALUE
   )
   public void createOrderFromCart(
