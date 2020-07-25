@@ -34,7 +34,7 @@ public class CartController {
       method = RequestMethod.GET,
       value = "/{cartId}/products}"
   )
-  public List<ProductDto> getProductsByCartId(@RequestParam("cartId") Long cartId) {
+  public List<ProductDto> getProductsByCartId(@PathParam("cartId") Long cartId) {
     return new ArrayList<>();
   }
 
@@ -53,8 +53,8 @@ public class CartController {
       value = "/{cartId}/product/{productId}"
   )
   public void deleteProductFromCart(
-      @RequestParam("cartId") Long cartId,
-      @RequestParam("productId") Long productId) {
+      @PathParam("cartId") Long cartId,
+      @PathParam("productId") Long productId) {
   }
 
   @RequestMapping(
