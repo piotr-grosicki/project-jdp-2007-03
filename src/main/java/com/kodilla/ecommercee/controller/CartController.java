@@ -63,7 +63,7 @@ public class CartController {
       consumes = APPLICATION_JSON_VALUE
   )
   public void createOrderFromCart(
-      @RequestParam("cartId") Long cartId,
+      @PathParam("cartId") Long cartId,
       @RequestBody OrderDto orderDto) {
   }
 }
