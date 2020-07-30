@@ -15,21 +15,18 @@ public class GroupController {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<GroupDto> getGroups() {
-
         return new ArrayList<>();
     }
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/{groupId}")
     public GroupDto getGroup(@PathParam ("groupId") Long groupId) {
-
         return new GroupDto();
     }
 
 
     @RequestMapping(method = RequestMethod.PUT)
     public GroupDto updateGroup(@RequestBody GroupDto groupDto) {
-
         return new GroupDto();
     }
 
