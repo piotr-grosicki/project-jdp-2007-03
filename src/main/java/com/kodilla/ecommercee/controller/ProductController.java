@@ -1,40 +1,40 @@
 package com.kodilla.ecommercee.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
+import com.kodilla.ecommercee.domain.dto.ProductDto;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import javax.websocket.server.PathParam;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/v1/product")
 public class ProductController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "getProducts")
+    @GetMapping("/products")
     public List<ProductDto> getProducts(){
-
         return new ArrayList<>();
     }
-    @RequestMapping(method = RequestMethod.GET, value = "getProduct")
-    public ProductDto getProduct(@RequestParam Long productId) {
-
+    @GetMapping("/{productId}")
+    public ProductDto getProduct(@PathParam("productId") Long productId) {
         return new ProductDto ();
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "deleteProduct")
-    public void deleteProduct (@RequestParam Long productId){
-
+    @DeleteMapping("/{productId}")
+    public void deleteProduct (@PathParam("productId") Long productId){
     }
 
-    @RequestMapping(method = RequestMethod.PUT,value = "updateProduct")
+    @PutMapping("")
     public ProductDto updateProduct(@RequestBody ProductDto productDto){
         return new ProductDto ();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "createProduct", consumes = APPLICATION_JSON_VALUE)
+    @PostMapping("")
     public void createProduct(@RequestBody ProductDto productDto){
-
     }
 }
