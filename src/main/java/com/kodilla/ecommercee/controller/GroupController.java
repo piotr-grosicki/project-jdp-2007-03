@@ -7,29 +7,33 @@ import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @RestController
 @RequestMapping("/v1/group")
 public class GroupController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping("/groups")
     public List<GroupDto> getGroups() {
         return new ArrayList<>();
     }
 
-
-    @RequestMapping(method = RequestMethod.GET, value = "/{groupId}")
+    @GetMapping("/{groupId}")
     public GroupDto getGroup(@PathParam ("groupId") Long groupId) {
         return new GroupDto();
     }
 
+    @DeleteMapping("/{groupId}")
+    public void deleteGroupById(@PathParam("groupId") Long groupId){
+    }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @PutMapping("")
     public GroupDto updateGroup(@RequestBody GroupDto groupDto) {
         return new GroupDto();
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping("")
     public void createGroup(@RequestBody GroupDto groupDto) {
-
     }
 }
+
