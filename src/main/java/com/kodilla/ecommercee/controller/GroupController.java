@@ -36,3 +36,4 @@ public class GroupController {
     public void createGroup(@RequestBody GroupDto groupDto) {
     }
 }
+
