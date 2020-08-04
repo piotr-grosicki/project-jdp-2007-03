@@ -1,6 +1,7 @@
 package com.kodilla.ecommercee.domain;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,10 +34,10 @@ public class Product extends GenericEntity {
   private BigInteger price;
 
   @ManyToMany
-  Set<Order> ordersSet;
+  List<Order> orders;
 
   @ManyToMany
-  Set<Cart> cartSet;
+  List<Cart> carts;
 
   @ManyToOne
   @JoinColumn(name = "groupId")
