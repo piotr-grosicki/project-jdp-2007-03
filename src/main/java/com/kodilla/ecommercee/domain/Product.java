@@ -33,10 +33,10 @@ public class Product extends GenericEntity {
   @Column(name = "price")
   private BigInteger price;
 
-  @ManyToMany
+  @ManyToMany(mappedBy = "products")
   List<Order> orders;
 
-  @ManyToMany
+  @ManyToMany(mappedBy = "products")
   List<Cart> carts;
 
   @ManyToOne
