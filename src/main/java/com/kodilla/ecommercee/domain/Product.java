@@ -22,9 +22,6 @@ import lombok.Setter;
 @Setter
 @Entity(name = "products")
 public class Product extends GenericEntity {
-  //@Id
-  //@GeneratedValue
-  //private Long productId;
 
   @NonNull
   @Column(name = "productName")
