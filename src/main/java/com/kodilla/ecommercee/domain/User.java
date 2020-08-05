@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+import com.kodilla.ecommercee.domain.dto.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,13 +15,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "USER")
-public class User extends GenericEntity{
+@Table(name = "USERS")
+public class User{
 
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "users", unique = true)
+    @Column(name = "userId", unique = true)
     private Long userId;
 
     @Column(name = "login")
@@ -31,13 +32,7 @@ public class User extends GenericEntity{
     @NotNull
     private String email;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userId", referencedColumnName = "cardId")
-    @NotNull
-    private Cart cart;
-
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "carts")
     @NotNull
     private List<Order> orders;
 
