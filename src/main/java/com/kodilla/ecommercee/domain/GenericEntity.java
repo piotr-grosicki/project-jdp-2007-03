@@ -4,28 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+@MappedSuperclass
 public class GenericEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String value;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
-    public GenericEntity() {
-    }
+  public GenericEntity() {
+  }
 
-    public String getValue() {
-        return value;
-    }
+  public Long getId() {
 
-    public Long getId() {
-
-        return id;
-    }
-
-    public GenericEntity(String value) {
-
-        this.value = value;
-    }
+    return id;
+  }
 }
+

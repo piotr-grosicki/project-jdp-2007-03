@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -18,8 +20,11 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Setter
-@Entity(name = "product")
+@Entity(name = "products")
 public class Product extends GenericEntity {
+  //@Id
+  //@GeneratedValue
+  //private Long productId;
 
   @NonNull
   @Column(name = "productName")
