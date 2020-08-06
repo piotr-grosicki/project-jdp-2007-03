@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -16,13 +18,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "USERS")
-public class User{
-
-    @Id
-    @GeneratedValue
-    @NotNull
-    @Column(name = "userId", unique = true)
-    private Long userId;
+public class User extends GenericEntity{
 
     @Column(name = "login")
     @NotNull
@@ -32,9 +28,27 @@ public class User{
     @NotNull
     private String email;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "carts")
-    @NotNull
-    private List<Order> orders;
+    private Cart cart;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "carts_id")
+    public Cart getCart(){
+        return cart;
+    }
+
+    private List<Order> orders = new ArrayList<>();
+
+
+    @OneToMany(
+            targetEntity = Order.class,
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+
+    public List<Order> getOrders(){
+        return orders;
+    }
 
 
 
