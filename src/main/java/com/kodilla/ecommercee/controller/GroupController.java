@@ -3,7 +3,6 @@ package com.kodilla.ecommercee.controller;
 import com.kodilla.ecommercee.domain.dto.GroupDto;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +18,12 @@ public class GroupController {
     }
 
     @GetMapping("/{groupId}")
-    public GroupDto getGroup(@PathParam ("groupId") Long groupId) {
+    public GroupDto getGroup(@PathVariable ("groupId") Long groupId) {
         return new GroupDto();
     }
 
     @DeleteMapping("/{groupId}")
-    public void deleteGroupById(@PathParam("groupId") Long groupId){
+    public void deleteGroupById(@PathVariable("groupId") Long groupId){
     }
 
     @PutMapping("")

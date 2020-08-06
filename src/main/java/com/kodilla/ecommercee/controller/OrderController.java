@@ -1,7 +1,6 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.dto.OrderDto;
-import javax.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -19,12 +18,12 @@ public class OrderController {
 
 
     @GetMapping("/{orderId}")
-    public OrderDto getOrder(@PathParam("orderId") Long orderId) {
+    public OrderDto getOrder(@PathVariable("orderId") Long orderId) {
         return new OrderDto();
     }
 
     @DeleteMapping("/{orderId}")
-    public void deleteOrder(@PathParam("orderId") Long orderId) {
+    public void deleteOrder(@PathVariable("orderId") Long orderId) {
     }
 
     @PutMapping("")
