@@ -7,14 +7,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Entity(name="USER")
+@Entity(name="USERS")
 public class User extends GenericEntity{
 
     @OneToMany(
             targetEntity = Order.class,
-            mappedBy = "user",
+            mappedBy = "users",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List<Order> orderList;
+    private List<Order> orders;
 }

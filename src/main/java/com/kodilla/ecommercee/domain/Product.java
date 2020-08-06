@@ -8,14 +8,14 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Entity(name="PRODUCT")
+@Entity(name="PRODUCTS")
 public class Product extends GenericEntity{
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_ORDER_USER",
-            joinColumns = {@JoinColumn(name = "Product_id")},
-            inverseJoinColumns = {@JoinColumn(name = "Order_id")}
+            joinColumns = {@JoinColumn(name = "product_id")},
+            inverseJoinColumns = {@JoinColumn(name = "order_id")}
     )
     private List<Order> orders;
 

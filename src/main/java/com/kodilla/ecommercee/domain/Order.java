@@ -11,12 +11,12 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name="ORDER")
+@Table(name="ORDERS")
 public class Order extends GenericEntity{
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "User_id")
-    private User user;
+    @JoinColumn(name = "user_id")
+    private User users;
 
     @ManyToMany(mappedBy = "orders")
     private List<Product> products;
