@@ -2,11 +2,8 @@ package com.kodilla.ecommercee.domain;
 
 import java.math.BigInteger;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -43,5 +40,5 @@ public class Product extends GenericEntity {
 
   @ManyToOne
   @JoinColumn(name = "groupId")
-  private Group groupId;
+  private Group group;
 }
