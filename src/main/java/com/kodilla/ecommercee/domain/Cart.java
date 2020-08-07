@@ -19,6 +19,6 @@ public class Cart extends GenericEntity{
 
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_Id")
     private User user;
 }
