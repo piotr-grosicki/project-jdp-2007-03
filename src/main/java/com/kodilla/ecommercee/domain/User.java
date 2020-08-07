@@ -1,11 +1,9 @@
 package com.kodilla.ecommercee.domain;
 
-import com.kodilla.ecommercee.domain.dto.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -28,15 +26,17 @@ public class User extends GenericEntity{
     @NotNull
     private String email;
 
-    private Cart cart;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "carts_id")
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
+
     public Cart getCart(){
         return cart;
     }
 
-    private List<Order> orders = new ArrayList<>();
+
 
 
     @OneToMany(
@@ -45,6 +45,8 @@ public class User extends GenericEntity{
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
+    private List<Order> orders = new ArrayList<>();
+
 
     public List<Order> getOrders(){
         return orders;
