@@ -1,5 +1,8 @@
 package com.kodilla.ecommercee.controller;
+
+import com.kodilla.ecommercee.domain.dto.UserDto;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +30,7 @@ public class UserController {
 
     @DeleteMapping("/{userId}")
 
-    public void deleteUserById (@PathVariable("userId") Long userId){
+    public void deleteUserById (@PathVariable("userId") Long productId){
     }
 
     @GetMapping("/{userId}")
