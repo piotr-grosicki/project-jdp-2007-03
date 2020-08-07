@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee.domain.dto;
+package com.kodilla.ecommercee.domain;
 
 import com.kodilla.ecommercee.domain.GenericEntity;
 import com.kodilla.ecommercee.domain.User;
@@ -18,10 +18,12 @@ import javax.validation.constraints.NotNull;
 @Table(name = "ORDERS")
 public class Order extends GenericEntity {
 
-    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
+    private User user;
+
+
     public User getUser(){
         return user;
     }
