@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Entity(name="USERS")
+@Entity(name="users")
 public class User extends GenericEntity{
 
     @OneToMany(
