@@ -10,9 +10,9 @@ import java.util.List;
 @Entity(name="products")
 public class Product extends GenericEntity{
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
-            name = "JOIN_ORDER_USER",
+            name = "join_order_user",
             joinColumns = {@JoinColumn(name = "productid")},
             inverseJoinColumns = {@JoinColumn(name = "orderid")}
     )
@@ -21,5 +21,13 @@ public class Product extends GenericEntity{
     @ManyToOne
     @JoinColumn(name = "groupId")
     private Group group;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "join_cart_product",
+            joinColumns = {@JoinColumn(name = "productid")},
+            inverseJoinColumns = {@JoinColumn(name = "cartid")}
+    )
+    private List<Cart> carts;
 }
 
