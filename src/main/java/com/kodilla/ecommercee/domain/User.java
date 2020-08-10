@@ -1,6 +1,8 @@
 package com.kodilla.ecommercee.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -17,4 +19,7 @@ public class User extends GenericEntity{
             fetch = FetchType.LAZY
     )
     private List<Order> orders;
+
+    @OneToOne(mappedBy = "users")
+    private Cart cart;
 }
