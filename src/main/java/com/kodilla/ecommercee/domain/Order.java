@@ -20,14 +20,7 @@ public class Order extends GenericEntity {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User user;
-
-
-    public User getUser(){
-        return user;
-    }
-
-
 
 }
