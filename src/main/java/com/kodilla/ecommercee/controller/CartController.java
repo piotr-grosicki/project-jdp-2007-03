@@ -5,7 +5,6 @@ import com.kodilla.ecommercee.domain.dto.OrderDto;
 import com.kodilla.ecommercee.domain.dto.ProductDto;
 import java.util.ArrayList;
 import java.util.List;
-import javax.websocket.server.PathParam;
 
 import org.springframework.web.bind.annotation.*;
 
