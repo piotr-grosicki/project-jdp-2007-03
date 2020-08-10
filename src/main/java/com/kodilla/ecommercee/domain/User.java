@@ -31,14 +31,6 @@ public class User extends GenericEntity{
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-
-    public Cart getCart(){
-        return cart;
-    }
-
-
-
-
     @OneToMany(
             targetEntity = Order.class,
             mappedBy = "user",
@@ -46,12 +38,5 @@ public class User extends GenericEntity{
             fetch = FetchType.LAZY
     )
     private List<Order> orders = new ArrayList<>();
-
-
-    public List<Order> getOrders(){
-        return orders;
-    }
-
-
 
 }
