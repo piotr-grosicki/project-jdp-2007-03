@@ -1,20 +1,27 @@
+
 package com.kodilla.ecommercee.domain;
 
-import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
 @NoArgsConstructor
 @Setter
 @Entity(name = "carts")
-public class Cart extends GenericEntity {
+public class Cart extends GenericEntity{
+
+
+  @OneToOne(cascade =  CascadeType.ALL,fetch = FetchType.EAGER)
+  @JoinColumn(name = "userid")
+  private User users;
 
   @ManyToMany(mappedBy = "carts")
   private List<Product> products;
+
 }

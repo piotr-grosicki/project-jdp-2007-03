@@ -1,45 +1,40 @@
 package com.kodilla.ecommercee.domain;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
 @NoArgsConstructor
 @Setter
+
 @Entity(name = "products")
 public class Product extends GenericEntity {
 
-  @Column(name = "productName")
-  private String name;
-
-  @Column(name = "productDesription")
-  private String description;
-
-  @Column(name = "price")
-  private BigInteger price;
-
-  @ManyToMany(cascade = CascadeType.ALL)
+  @ManyToMany
+  @JoinTable(
+      name = "join_order_user",
+      joinColumns = {@JoinColumn(name = "productid")},
+      inverseJoinColumns = {@JoinColumn(name = "orderid")}
+  )
   private List<Order> orders;
-
-  @ManyToMany(cascade = CascadeType.ALL)
-  @JoinTable
-  private List<Cart> carts;
 
   @ManyToOne
   @JoinColumn(name = "groupId")
   private Group group;
+
+  @ManyToMany(cascade = CascadeType.ALL)
+  @JoinTable(
+      name = "join_cart_product",
+      joinColumns = {@JoinColumn(name = "productid")},
+      inverseJoinColumns = {@JoinColumn(name = "cartid")}
+  )
+  private List<Cart> carts;
 }
+
