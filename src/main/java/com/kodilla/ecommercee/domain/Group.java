@@ -8,12 +8,12 @@ import java.util.List;
 
 @AllArgsConstructor
 @Getter
-@NoArgsConstructor
 @Entity(name = "groups")
 public class Group extends GenericEntity {
 
     @Column(name = "name")
     private String name;
+
 
     @OneToMany(
             targetEntity = Product.class,
@@ -23,4 +23,12 @@ public class Group extends GenericEntity {
     )
     private List<Product> products = new ArrayList<>();
 
+    public Group() {
+    }
+
+    public Group(Long id, String name, List<Product> products) {
+        super.getId();
+        this.name = name;
+        this.products = products;
+    }
 }
