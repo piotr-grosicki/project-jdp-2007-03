@@ -13,7 +13,6 @@ public class UserController {
     @PostMapping("")
 
     public void createUser(@RequestBody UserDto userDto) {
-
     }
 
     @GetMapping("/users")

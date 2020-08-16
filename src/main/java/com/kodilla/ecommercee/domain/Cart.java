@@ -6,21 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@AllArgsConstructor
 @Getter
-@NoArgsConstructor
 @Setter
-@Entity(name = "carts")
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "CARTS")
 public class Cart extends GenericEntity{
 
 
-    @OneToOne(cascade =  CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "userid")
-    private User users;
-
-    @ManyToMany(mappedBy = "carts")
-    private List<Product> products;
-
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 }
