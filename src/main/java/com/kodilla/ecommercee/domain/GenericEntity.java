@@ -11,7 +11,7 @@ public class GenericEntity {
     }
 
     public GenericEntity(Long id) {
-
+        this.id = id;
     }
 
     public Long getId() {
