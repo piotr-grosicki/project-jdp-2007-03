@@ -11,6 +11,16 @@ import java.util.List;
 @Entity(name = "groups")
 public class Group extends GenericEntity {
 
+    public Group() {
+    }
+
+    public Group(Long id, String name, List<Product> products) {
+        super(id);
+        this.name = name;
+        this.products = products;
+    }
+
+
     @Column(name = "name")
     private String name;
 
@@ -23,12 +33,4 @@ public class Group extends GenericEntity {
     )
     private List<Product> products = new ArrayList<>();
 
-    public Group() {
-    }
-
-    public Group(Long id, String name, List<Product> products) {
-        super.getId();
-        this.name = name;
-        this.products = products;
-    }
 }

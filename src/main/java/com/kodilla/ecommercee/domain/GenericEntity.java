@@ -10,6 +10,10 @@ public class GenericEntity {
     public GenericEntity() {
     }
 
+    public GenericEntity(Long id) {
+
+    }
+
     public Long getId() {
 
         return id;
