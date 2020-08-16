@@ -18,6 +18,5 @@ public class GenericEntity {
 
         return id;
     }
-
 }
 

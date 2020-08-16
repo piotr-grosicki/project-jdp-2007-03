@@ -40,4 +40,3 @@ public class Product extends GenericEntity {
   )
   private List<Cart> carts;
 }
-
