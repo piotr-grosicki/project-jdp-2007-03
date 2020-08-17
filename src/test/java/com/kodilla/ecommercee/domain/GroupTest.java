@@ -45,7 +45,7 @@ public class GroupTest {
         //Given
         List<Product> products = new ArrayList<>();
 
-        Group group1 = new Group(1L,"test1", products);
+        Group group1 = new Group("test1", products);
         //When
         groupRepository.save(group1);
 
@@ -62,7 +62,7 @@ public class GroupTest {
         //Given
         List<Product> products = new ArrayList<>();
 
-        Group group1 = new Group(1L,"test1", products);
+        Group group1 = new Group("test1", products);
 
         //When
         groupRepository.save(group1);
@@ -81,9 +81,9 @@ public class GroupTest {
         //Given
         List<Product> products = new ArrayList<>();
 
-        Group group1 = new Group(1L,"test1", products);
-        Group group2 = new Group(2L,"test2", products);
-        Group group3 = new Group(3L,"test3", products);
+        Group group1 = new Group("test1", products);
+        Group group2 = new Group("test2", products);
+        Group group3 = new Group("test3", products);
 
         groupRepository.save(group1);
         groupRepository.save(group2);
