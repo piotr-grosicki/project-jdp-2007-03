@@ -90,7 +90,6 @@ public class GroupTest {
         groupRepository.save(group3);
 
         //When
-
         groupRepository.deleteById(group3.getId());
         List<Group> groups = groupRepository.findAll();
 
