@@ -10,9 +10,11 @@ import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @AllArgsConstructor
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity(name = "groups")
 public class Group extends GenericEntity {
