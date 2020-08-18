@@ -127,19 +127,19 @@ public class CartTest {
         cart.setUser(user);
         cart.setProducts(products);
         user.setCart(cart);
+        Cart cart1=new Cart(new User(),new ArrayList<>());
 
         userRepository.save(user);
         cartRepository.save(cart);
 
         //When
         long id = cart.getId();
-        System.out.println(cartRepository.findAll().size());
-        userRepository.deleteAll();
-        System.out.println(cartRepository.findAll().size());
+        cartRepository.deleteById(id);
+        List<Cart> carts = cartRepository.findAll();
 
 
         //Then
-        //Assert.assertEquals(0, carts.size());
+        Assert.assertEquals(0, carts.size());
 
         //Clean
         cartRepository.deleteAll();

@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = "CARTS")
 public class Cart extends GenericEntity {
 
-  @OneToOne(mappedBy = "cart", fetch = FetchType.EAGER)
+  @OneToOne(mappedBy = "cart",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private User user;
 
   @ManyToMany(mappedBy = "carts")
