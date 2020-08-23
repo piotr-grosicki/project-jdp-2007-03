@@ -21,27 +21,25 @@ import javax.persistence.OneToOne;
 @Setter
 @Entity
 @Table(name = "USERS")
-public class User extends GenericEntity{
+public class User extends GenericEntity {
 
-    @Column(name = "login")
-    @NotNull
-    private String login;
+  @Column(name = "login")
+  @NotNull
+  private String login;
 
-    @Column(name = "email")
-    @NotNull
-    private String email;
+  @Column(name = "email")
+  @NotNull
+  private String email;
 
+  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @JoinColumn(name = "cart_id")
+  private Cart cart;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
-
-    @OneToMany(
-            targetEntity = Order.class,
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    private List<Order> orders = new ArrayList<>();
-
+  @OneToMany(
+      targetEntity = Order.class,
+      mappedBy = "user",
+      cascade = CascadeType.ALL,
+      fetch = FetchType.LAZY
+  )
+  private List<Order> orders = new ArrayList<>();
 }

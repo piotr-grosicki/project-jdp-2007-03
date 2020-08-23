@@ -18,12 +18,11 @@ public class OrderTest {
   @Autowired OrderRepository orderRepository;
   @Autowired UserRepository userRepository;
 
-  //userId, list of products
   @Test
   public void findAllOrders() {
     //Given
-    User user = new User("tom", "tom@foo.pl",new Cart(),new ArrayList<>());
-    User user2 = new User("johnsnow", "john@snow.pl",new Cart(),new ArrayList<>());
+    User user = new User("tom", "tom@foo.pl", new Cart(), new ArrayList<>());
+    User user2 = new User("johnsnow", "john@snow.pl", new Cart(), new ArrayList<>());
     List<Product> products = new ArrayList<>();
     Order order = new Order(user, products);
     Order order2 = new Order(user2, products);
@@ -43,8 +42,8 @@ public class OrderTest {
   @Test
   public void saveOrder() {
     //Given
-    User user = new User("tom", "tom@foo.pl",new Cart(),new ArrayList<>());
-    User user2 = new User("johnsnow", "john@snow.pl",new Cart(),new ArrayList<>());
+    User user = new User("tom", "tom@foo.pl", new Cart(), new ArrayList<>());
+    User user2 = new User("johnsnow", "john@snow.pl", new Cart(), new ArrayList<>());
     List<Product> products = new ArrayList<>();
     Order order = new Order(user, products);
     Order order2 = new Order(user2, products);
@@ -65,7 +64,7 @@ public class OrderTest {
   @Test
   public void findOrderById() {
     //Given
-    User user = new User("tom", "tom@foo.pl",new Cart(),new ArrayList<>());
+    User user = new User("tom", "tom@foo.pl", new Cart(), new ArrayList<>());
     List<Product> products = new ArrayList<>();
     Order order = new Order(user, products);
     //When
@@ -83,8 +82,8 @@ public class OrderTest {
   @Test
   public void deleteOrderById() {
     //Given
-    User user = new User("tom", "tom@foo.pl",new Cart(),new ArrayList<>());
-    User user2 = new User("johnsnow", "john@snow.pl",new Cart(),new ArrayList<>());
+    User user = new User("tom", "tom@foo.pl", new Cart(), new ArrayList<>());
+    User user2 = new User("johnsnow", "john@snow.pl", new Cart(), new ArrayList<>());
     List<Product> products = new ArrayList<>();
     Order order = new Order(user, products);
     Order order2 = new Order(user2, products);

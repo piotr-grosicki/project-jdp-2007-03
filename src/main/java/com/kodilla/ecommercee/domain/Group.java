@@ -17,14 +17,14 @@ import lombok.NoArgsConstructor;
 @Entity(name = "groups")
 public class Group extends GenericEntity {
 
-    @Column(name = "name")
-    private String name;
+  @Column(name = "name")
+  private String name;
 
-    @OneToMany(
-            targetEntity = Product.class,
-            mappedBy = "group",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    private List<Product> products = new ArrayList<>();
+  @OneToMany(
+      targetEntity = Product.class,
+      mappedBy = "group",
+      cascade = CascadeType.ALL,
+      fetch = FetchType.LAZY
+  )
+  private List<Product> products = new ArrayList<>();
 }

@@ -7,16 +7,16 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class GenericEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
   public GenericEntity() {
   }
 
-    public Long getId() {
+  public Long getId() {
 
-        return id;
-    }
+    return id;
+  }
 }
 
